@@ -2,46 +2,63 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 
-import IconButton from "@mui/material/IconButton";
-import SideDrawer from "./SideDrawer";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import MailIcon from "@mui/icons-material/Mail";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-import MenuIcon from "@mui/icons-material/Menu";
-import { useState } from "react";
+import { List, ListItem, ListItemButton, ListItemIcon } from "@mui/material";
 
-import MenuOptionsList from "./MenuOptionsList";
+import type { DrawerLink } from "./app.types";
+
+const drawerLinks: DrawerLink[] = [
+  { icon: <GitHubIcon />, link: "https://github.com/webdeviq" },
+  {
+    icon: <LinkedInIcon />,
+
+    link: "https://www.linkedin.com/in/ali-d-519711217",
+  },
+  {
+    icon: <MailIcon />,
+
+    link: "mailto:alialdairawi@outlook.com",
+  },
+];
 
 const Header = () => {
-  const [openDrawer, setOpenDrawer] = useState<boolean>(false);
-
-  const handleOpenDrawer = () => {
-    setOpenDrawer((prev) => !prev);
-  };
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2, display: { xs: "inline-flex", md: "none" } }}
-            onClick={handleOpenDrawer}
-          >
-            <MenuIcon />
-          </IconButton>
-          {openDrawer && (
-            <SideDrawer open={openDrawer} onClose={handleOpenDrawer} />
-          )}
           <Box
             sx={{
-              display: { xs: "none", md: "flex" },
+              display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              flexDirection: "row",
               width: "100%",
             }}
           >
-            <MenuOptionsList />
+            <List
+              sx={{
+                display: "flex",
+                alignItems:  "center" ,
+                justifyContent: "space-between",
+                flexDirection: "row",
+              }}
+            >
+              {drawerLinks.map((element) => (
+                <ListItem key={element.link} disablePadding>
+                  <ListItemButton
+                    component="a"
+                    href={element.link}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <ListItemIcon>{element.icon}</ListItemIcon>
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
           </Box>
         </Toolbar>
       </AppBar>
