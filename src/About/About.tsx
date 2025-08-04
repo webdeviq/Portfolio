@@ -37,7 +37,7 @@ const About = () => {
         variant="contained"
         sx={{ mt: 2 }}
         component="a"
-        href="/public/Ali_Al_Dairawi_Resume_August_2025.pdf"
+        href="/Ali_Al_Dairawi_Resume_August_2025.pdf"
         download="Ali_Al_Dairawi_Resume_August_2025"
       >
         Download Resume
