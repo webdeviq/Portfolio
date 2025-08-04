@@ -17,6 +17,7 @@ const Skills = () => {
       flexWrap="wrap"
       justifyContent="center"
       pt={3}
+
     >
       {skills.map((skill) => (
         <Link
@@ -30,9 +31,9 @@ const Skills = () => {
             sx={{
               bgcolor: blue[400],
               variant: "square",
-              width: 72,
+              width: {xs: 60},
               height: 72,
-              fontSize: 14,
+              fontSize: { xs: 12 , md: 14},
               fontWeight: "bold",
               cursor: "pointer",
               transition: "transform 0.2s",

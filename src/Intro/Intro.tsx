@@ -38,7 +38,10 @@ const Intro = () => {
         <Typography
           variant="h5"
           color="primary"
-          sx={{ animation: `${fadeIn} 2s ease-in-out forwards` }}
+          sx={{
+            animation: `${fadeIn} 2s ease-in-out forwards`,
+            fontSize: { xs: "16px" },
+          }}
         >
           I'm Ali and I'm a{" "}
           <Box
