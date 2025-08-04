@@ -12,13 +12,13 @@ const About = () => {
         px: 2,
         maxWidth: "800px",
         margin: "0 auto",
-      }}// Test
+      }} // Test
     >
       <Typography
         textAlign="center"
         variant="subtitle1"
         color="text.primary"
-        sx={{ fontWeight: "bold", lineHeight: 1.6 }}
+        sx={{ fontWeight: "bold", lineHeight: 1.6, fontSize: { xs: "15px" } }}
       >
         I'm a passionate software developer with a deep love for the terminal
         industry, especially working with{" "}
