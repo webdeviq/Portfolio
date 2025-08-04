@@ -12,7 +12,7 @@ const About = () => {
         px: 2,
         maxWidth: "800px",
         margin: "0 auto",
-      }}
+      }}// Test
     >
       <Typography
         textAlign="center"
