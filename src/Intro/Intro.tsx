@@ -1,52 +1,82 @@
 import { Box, Typography, keyframes } from "@mui/material";
 
-const fadeIn = keyframes`from {opacity: 0; transform: translateY(80px);} 
-to {opacity:1; transform:translateY(0)}`;
+const slideIn = keyframes`
+  from { opacity: 0; transform: translateX(-28px); }
+  to   { opacity: 1; transform: translateX(0); }
+`;
 
-const blink = keyframes`0%,100% {opacity: 0.2;} 50% {opacity: 1;}`;
+const blink = keyframes`
+  0%, 100% { opacity: 0.25; }
+  50%      { opacity: 1; }
+`;
 
 const Intro = () => {
   return (
     <Box
       sx={{
+        minHeight: { xs: "42vh", sm: "48vh" },
         display: "flex",
-        alignItems: "center",
+        alignItems: "flex-start",
         justifyContent: "center",
-        flexDirection: "column",
+        textAlign: "center",
+        px: 2,
+        pt: { xs: 3, sm: 6 },
+        pb: { xs: 4, sm: 6 },
       }}
     >
       <Box
         sx={{
           display: "flex",
-          justifyContent: "center",
+          flexDirection: "column",
           alignItems: "center",
-          pt: 7,
-        }}
-      >
-        <Typography variant="h4" color="primary">
-          Hi Everyone!
-        </Typography>
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          pt: 3,
+          gap: 1.5,
+          animation: `${slideIn} 700ms ease-out forwards`,
+          opacity: 0,
         }}
       >
         <Typography
-          variant="h5"
-          color="primary"
+          variant="overline"
           sx={{
-            animation: `${fadeIn} 2s ease-in-out forwards`,
-            fontSize: { xs: "16px", sm: "1.5rem", md: "1.8rem" },
+            letterSpacing: 2,
+            color: "rgba(255,255,255,0.70)",
+            fontWeight: 800,
           }}
         >
-          I'm Ali and I'm a{" "}
+          Hi Everyone
+        </Typography>
+
+        <Typography
+          variant="h3"
+          sx={{
+            fontWeight: 900,
+            lineHeight: 1.1,
+            fontSize: { xs: "2rem", sm: "2.6rem", md: "3.2rem" },
+            color: "rgba(255,255,255,0.92)",
+          }}
+        >
+          I&apos;m{" "}
+          <Box component="span" sx={{ color: "primary.main" }}>
+            Ali
+          </Box>
+        </Typography>
+
+        <Typography
+          variant="h5"
+          sx={{
+            color: "rgba(255,255,255,0.78)", // ✅ subtitle brighter
+            fontWeight: 600,
+            fontSize: { xs: "1rem", sm: "1.25rem", md: "1.4rem" },
+          }}
+        >
+          A{" "}
           <Box
             component="span"
-            sx={{ fontWeight: "bold", color: "secondary.main" }}
+            sx={{
+              fontWeight: 900,
+              color: "secondary.main",
+              position: "relative",
+              whiteSpace: "nowrap",
+            }}
           >
             Software Engineer
             <Box
@@ -58,9 +88,10 @@ const Intro = () => {
                 borderRadius: "50%",
                 bgcolor: "primary.main",
                 ml: 1,
-                animation: `${blink} 1.2s infinite ease-in-out`,
+                transform: "translateY(-1px)",
+                animation: `${blink} 1.15s ease-in-out infinite`,
               }}
-            ></Box>
+            />
           </Box>
         </Typography>
       </Box>

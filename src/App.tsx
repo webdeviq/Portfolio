@@ -6,15 +6,16 @@ import Skills from "./Knowledge/Skills";
 import Experience from "./Knowledge/Experience";
 import Footer from "./Footer/Footer";
 
+import "./App.css";
+
 const App = () => {
   return (
     <>
       <CssBaseline />
       <Box
         sx={{
-          bgcolor: "#f5f5f5", // background color (or use gradient/bg image)
-          minHeight: "100vh", // ensures it fills full screen
-          overflowX: "hidden", // optional: prevents horizontal scroll
+          minHeight: "100vh",
+          overflowX: "hidden",
         }}
       >
         <Header />
@@ -22,7 +23,7 @@ const App = () => {
         <About />
         <Skills />
         <Experience />
-        <Footer/>
+        <Footer />
       </Box>
     </>
   );
